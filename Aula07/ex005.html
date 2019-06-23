@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipulando Dados</title>
+    <style>
+        body{
+            background-color: rgb(158, 241, 158);
+            font: normal 20pt Arial;
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+        var a, b, c, d, e, f, idade, consulta;
+        a = 5 + 3          //total 8
+        b = a % 5          //total 3
+        c = 5 * b ** 2     //total 45
+        d = 10 - a / 2     //total 6
+        e = 6 * 2 / d      //total 2
+        f = b % e + 4 / e  //total 3
+
+        document.write(`Valores de (a = 5 + 3) é ${a}<br/>`)
+        document.write(`Valores de (b = a % 5) é ${b}<br/>`)
+        document.write(`Valores de (c = 5 * b ** 2) é ${c}<br/>`)
+        document.write(`Valores de (d = 10 - a / 2) é ${d}<br/>`)
+        document.write(`Valores de (e = 6 * 2 / d) é ${e}<br/>`)
+        document.write(`Valores de (f = b % e + 4 / e) é ${f}<br/>`)
+
+        idade = prompt('Digite sua idade: ')
+        consulta = idade >= 18 ? 'Pode entrar na festa' : 'Volte para casa e volte com o responsavel'
+
+        document.write(consulta)
+
+
+    </script>
+</body>
+</html>
