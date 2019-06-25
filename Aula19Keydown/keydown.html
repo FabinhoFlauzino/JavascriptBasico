@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mover objetos na tela</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(52, 240, 99);
+            background-color: rgb(52, 240, 99);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+    <script>
+        var px = 0;
+        var py = 0;
+        var obj;
+        
+        function move() {
+            obj = document.getElementById('div1');
+            var tecla = event.keyCode;
+            //37 = seta esquerda  38 = seta baixo 39 = diretita 40 = baixo
+            if(tecla == 37){
+                px -= 10;
+                obj.style.left = px + 'px';
+            }else if(tecla == 38){
+                py -= 10;
+                obj.style.top = py + 'px';
+            }else if(tecla == 39){
+                px += 10;
+                obj.style.left = px + 'px';
+            }else if(tecla == 40){
+                py += 10;
+                obj.style.top = py + 'px';
+            }else if(tecla == 13){
+                alert('Evento Keydown Removido')
+                document.removeEventListener('keydown', move)
+            }
+        }
+
+        function addClique(){
+             document.addEventListener('keydown', move);
+        }
+
+        function iniciar(){
+            obj = document.getElementById('div1')
+            obj.addEventListener('click', addClique)
+        }
+
+        addEventListener('load', iniciar)
+       
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
