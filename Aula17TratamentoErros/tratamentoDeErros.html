@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tratamento de Erros</title>
+    <script>
+        var num;
+        try {
+            num = prompt('Digite um valor')
+            if(num > 10){
+                throw new Error('Valor Invalido, o valor maximo é 10!<br>')
+            }
+        } catch (ex) {
+            console.log("[ERRO]" + ex.message)
+            //console.log('Mensagem de erro: ' + ex.message)
+            num = 10
+        } finally {
+            document.write('<br>Valor: '+ num)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
