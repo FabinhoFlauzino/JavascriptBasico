@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula de request Animation Frame</title>
+    <style>
+            #jogador{
+                width: 100px;
+                height: 100px;
+                background-color: rgb(52, 240, 99);
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+    </style>
+    <script>
+        var jog, vel, dx, dy, px, py, anima 
+
+        function inicia(){
+            vel = 3;
+            dx = 1;
+            dy = 0;
+            px = 0;
+            py = 0;
+            estado = 1;
+            jog = document.getElementById('jogador')
+            jog.addEventListener('click', moverParar)
+            document.getElementById('btini').addEventListener('click', mover)
+            document.getElementById('btpara').addEventListener('click', parar)
+            game()
+        }
+        function moverParar(){
+            if(estado){
+                estado = 0
+                jog.style.backgroundColor = '#f00'
+                cancelAnimationFrame(anima)
+            }else {
+                estado = 1
+                jog.style.backgroundColor = '#00f'
+                anima = requestAnimationFrame(game)
+            }
+        }
+
+        function mover(){
+            if(!estado){
+                estado = 1
+                jog.style.backgroundColor = '#00f'
+                anima = requestAnimationFrame(game)
+            }
+        }
+
+        function parar(){
+            if(estado){
+                estado = 0
+                jog.style.backgroundColor = '#f00'
+                cancelAnimationFrame(anima)
+            }
+        }
+
+        function game(){
+            px += (dx * vel)
+            //py += (dy * vel)
+            jog.style.left = px + 'px'
+            //jog.style.top = py + 'px'
+            if(px > 800){
+                dx = -1
+            }else if(px < 100){
+                dx = 1
+            }
+            anima = requestAnimationFrame(game)
+
+        }
+
+        addEventListener('load', inicia)
+
+
+
+    </script>
+</head>
+<body>
+    <div id="jogador"></div>
+    <button id="btini">Iniciar</button>
+    <button id="btpara">Parar</button>
+</body>
+</html>
