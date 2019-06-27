@@ -10,8 +10,8 @@ section{
     background: white;
     border-radius: 10px;
     padding: 15px;
-    width: 500px;
-    height: 600px;
+    width: 300px;
+    height: 400px;
     margin: auto;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.363);
 }
@@ -38,42 +38,49 @@ section{
     border-right-width: 0;
     border-left-width: 0;
 }
-dvdisplay{
+.dvdisplay{
+    
     display: block;
 }
 #dvForca{
+    
     position: absolute;
     
 }
 #cabeca{
     position: absolute;
-    top: 400px;
+    top: 0px;
     left:0px;
 }
 #corpo{
     position: absolute;
-    top: 200px;
-    left:200px;
+    top: 0px;
+    left:0px;
 }
 #bracoE{
     position: absolute;
-    top: 0;
-    left:0;
+    top: 0px;
+    left:0px;
 }
 #bracoD{
     position: absolute;
-    top: 0;
-    left:0;
+    top: 0px;
+    left:0px;
 }
 #pernaE{
     position: absolute;
-    top: 0;
-    left:0;
+    top: 0px;
+    left:0px;
 }
 #pernaD{
     position: absolute;
-    top: 0;
-    left:0;
+    top: 0px;
+    left:0px;
+}
+#fim{
+    position: absolute;
+    top: 0px;
+    left:0px;
 }
 footer{
     color: white;

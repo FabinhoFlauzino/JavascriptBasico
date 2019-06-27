@@ -1,11 +1,10 @@
-var biblioteca = ['Baleia','Cachorro','Cavalo','Cobra','Crocodilo','Elefante','Galinha','Gambá','Gato','Golfinho',
-'Leão','Girafa','Lobo','Macaco','Ovelha','Papagaio','Polvo','Pombo','Rinoceronte','Tartaruga','Touro','Urso','Vaca',
-'França','Alemanha','Suíça','Suécia','Índia','Afeganistão','Japão','Austrália','Argentina',
-'Abacate','Abacaxi','açaí','Acerola','Amora','Banana','Carambola','Cereja','Goiaba','Jabuticaba','Jaca','Laranja']
+var biblioteca = ['baleia','cachorro','cavalo','cobra','crocodilo','elefante','galinha','gamba','gato','golfinho',
+'leão','girafa','pobo','pacaco','pvelha','papagaio','polvo','pombo','rinoceronte','tartaruga','touro','urso','vaca']
 
 var qtde = biblioteca.length - 1  //conta quantidade de palavras exixtente no array
 var pos = Math.round(Math.random()*qtde) // sorteia uma posição dentro do vetor
-var palavra = biblioteca[pos] //pega uma palavra dentro do vetor sorteada 
+var palavra = biblioteca[pos]//pega uma palavra dentro do vetor sorteada 
+palavra.toLocaleUpperCase() 
 var tam = palavra.length //verifica o tamanho da palavra sorteada
 var cxLetras = [] 
 var acertos, jog
@@ -51,19 +50,20 @@ function jogar(){
             if(!acertou){
                document.getElementById('dvletrasdigitadas').innerHTML += letra.toUpperCase()
                erros ++
-               if(erros<7){
+               if(erros<8){
                    desenhos[erros].style.display = 'block'
                }else{
-                   document.getElementById('pernaD').src = 'imgs/s6.png'
+                   document.getElementById('fim').src = 'imgs/s7.png'
                    document.getElementById('dvmsg').innerHTML = 'VOCÊ PERDEU'
                    jogando = false
                }
-               if(acertos == tam){
-                document.getElementById('dvmsg').innerHTML = ''
-                document.getElementById('dvmsg').innerHTML = 'VOCÊ GANHOU'
-                jogando = false
-               }
             }
+            if(acertos == tam){
+              document.getElementById('dvmsg').innerHTML = ''
+              document.getElementById('dvmsg').innerHTML = 'VOCÊ GANHOU'
+              jogando = false
+            }
+            
         }
     }
 }
@@ -82,16 +82,17 @@ function inicia(){
     tam = palavra.length
     defineLetras(tam)
     document.getElementById('dvmsg').innerHTML = ''
-   // desenhos[1] = document.getElementById('inicio')
+    desenhos[0] = document.getElementById('inicio')
     desenhos[1] = document.getElementById('cabeca')
     desenhos[2] = document.getElementById('corpo')
     desenhos[3] = document.getElementById('bracoE')
     desenhos[4] = document.getElementById('bracoD')
     desenhos[5] = document.getElementById('pernaE')
     desenhos[6] = document.getElementById('pernaD')
+    desenhos[7] = document.getElementById('fim')
     document.getElementById('inicio').src = 'imgs/s0.png'
-    for(var i = 1;i<7; i++){
-        desenhos[i].style.display = 'none' //esconde todas as peças
+    for(var i = 0;i<8; i++){
+        desenhos[i+1].style.display = 'none' //esconde todas as peças
     }
 }
 function dica(){
